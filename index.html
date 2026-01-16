@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="background-overlay"></div>
+
+    <nav>
+        <div class="nav-content">
+            <div class="logo">Happy Birthday.</div>
+            <ul class="nav-links">
+                <li><a href="#gallery">Moments</a></li>
+                <li><a href="#timeline">Journey</a></li> <li><a href="#music">Playlist</a></li>
+                <li><a href="#game">Surprise</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="animate-up">It’s your day Moon.</h1>
+            <p class="subtitle animate-up delay-1">Celebrating my favorite person in the universe.</p>
+            <div class="btn-wrapper animate-up delay-2">
+                <button class="cta-button" onclick="scrollToSection('gallery')">View Memories</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="section">
+        <div class="container">
+            <div class="section-header hidden">
+                <h2>Highlights.</h2>
+                <p>The best moments we've shared.</p>
+            </div>
+            
+            <div class="bento-grid">
+                <div class="bento-item large hidden" style="background-image: url('assets/photo1.jpg');">
+                    <div class="bento-overlay"><h3>Date Nights</h3></div>
+                </div>
+                <div class="bento-item hidden" style="background-image: url('assets/photo2.jpg');"></div>
+                <div class="bento-item hidden" style="background-image: url('assets/photo3.jpg');"></div>
+                <div class="bento-item tall hidden" style="background-image: url('assets/photo4.jpg');">
+                    <div class="bento-overlay"><h3>Adventures</h3></div>
+                </div>
+                <div class="bento-item hidden" style="background-image: url('assets/photo5.jpg');"></div>
+                <div class="bento-item hidden" style="background-image: url('assets/photo6.jpg');"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="timeline" class="section">
+        <div class="container">
+            <div class="section-header hidden">
+                <h2>Our Journey.</h2>
+                <p>One slide at a time.</p>
+            </div>
+
+            <div class="slideshow-container hidden">
+                <div class="mySlides fade">
+                    <div class="numbertext">1 / 3</div>
+                    <img src="assets/photo7.jpg" style="width:100%">
+                    <div class="text">Waffel Lovers 🍷</div>
+                </div>
+
+                <div class="mySlides fade">
+                    <div class="numbertext">2 / 3</div>
+                    <img src="assets/photo8.jpg" style="width:100%">
+                    <div class="text">Crazy Trips ✈️</div>
+                </div>
+
+                <div class="mySlides fade">
+                    <div class="numbertext">3 / 3</div>
+                    <img src="assets/photo9.jpg" style="width:100%">
+                    <div class="text">Us Forever ❤️</div>
+                </div>
+
+                <a class="prev" onclick="plusSlides(-1)">❮</a>
+                <a class="next" onclick="plusSlides(1)">❯</a>
+            </div>
+            <br>
+            <div style="text-align:center">
+                <span class="dot" onclick="currentSlide(1)"></span> 
+                <span class="dot" onclick="currentSlide(2)"></span> 
+                <span class="dot" onclick="currentSlide(3)"></span> 
+            </div>
+        </div>
+    </section>
+
+    <section id="music" class="section">
+        <div class="container">
+            <div class="section-header hidden">
+                <h2>The Soundtrack.</h2>
+                <p>Songs that remind me of you.</p>
+            </div>
+            
+            <div class="player-wrapper hidden">
+                <div class="music-card">
+                    <div class="album-art">
+                        <img src="assets/photo11.jpg" id="album-art-img" alt="Album Art">
+                    </div>
+                    <div class="track-info">
+                        <h3>O My Love</h3>
+                        <p>Our Special Mix</p>
+                        <div class="progress-bar"><div class="fill"></div></div>
+                        
+                        <div class="controls">
+                            <button class="control-btn small">⏮</button>
+                            <button class="control-btn play-btn" onclick="playPause()">
+                                <span id="play-icon">▶</span>
+                            </button>
+                            <button class="control-btn small">⏭</button>
+                        </div>
+                    </div>
+                    <audio id="audio" src="song.mp3"></audio>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="game" class="section">
+        <div class="container">
+            <div class="section-header hidden">
+                <h2>One Last Thing.</h2>
+                <p>Unlock your final surprise.</p>
+            </div>
+            
+            <div class="game-wrapper hidden">
+                <div id="puzzle-board"></div>
+                <button class="cta-button secondary" onclick="shufflePuzzle()">Shuffle Puzzle</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Made with ❤️ for you.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,182 @@
+:root {
+    --text-primary: #f5f5f7;
+    --text-secondary: #86868b;
+    --accent: #2997ff;
+    --card-bg: rgba(28, 28, 30, 0.6);
+    --hover-bg: rgba(44, 44, 46, 0.8);
+    --transition-curve: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: #000;
+    color: var(--text-primary);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    overflow-x: hidden;
+}
+
+/* --- Starry Background --- */
+.background-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    /* High quality dark bokeh background */
+    background-image: url('https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?q=80&w=2072&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.4;
+    z-index: -1;
+}
+
+/* --- Navigation --- */
+nav {
+    position: fixed; top: 0; width: 100%;
+    padding: 1.2rem 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    z-index: 100;
+}
+.nav-content {
+    max-width: 1000px; margin: 0 auto; padding: 0 20px;
+    display: flex; justify-content: space-between; align-items: center;
+}
+.logo { font-weight: 700; font-size: 1.2rem; letter-spacing: -0.5px; }
+.nav-links { display: flex; gap: 30px; list-style: none; }
+.nav-links a { text-decoration: none; color: var(--text-secondary); font-size: 0.9rem; transition: 0.3s; }
+.nav-links a:hover { color: var(--text-primary); }
+
+/* --- Hero --- */
+.hero {
+    height: 100vh; display: flex; flex-direction: column;
+    justify-content: center; align-items: center; text-align: center;
+}
+.hero h1 {
+    font-size: 4rem; font-weight: 700; letter-spacing: -2px;
+    background: linear-gradient(180deg, #fff, #b0b0b0);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+.subtitle { font-size: 1.5rem; color: var(--text-secondary); margin: 20px 0 40px; }
+
+/* Buttons */
+.btn-wrapper { width: 100%; display: flex; justify-content: center; }
+.cta-button {
+    padding: 12px 30px; border-radius: 980px; border: none;
+    font-size: 1rem; font-weight: 600; cursor: pointer;
+    background: #fff; color: #000;
+    transition: transform 0.2s;
+}
+.cta-button:hover { transform: scale(1.05); }
+.cta-button.secondary { background: rgba(255,255,255,0.1); color: #fff; margin-top: 20px; }
+
+/* --- Sections --- */
+.section { padding: 100px 20px; }
+.container { max-width: 900px; margin: 0 auto; }
+.section-header { text-align: center; margin-bottom: 50px; }
+.section-header h2 { font-size: 3rem; font-weight: 700; margin-bottom: 10px; }
+.section-header p { color: var(--text-secondary); font-size: 1.2rem; }
+
+/* --- Bento Grid --- */
+.bento-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px; grid-auto-rows: 250px;
+}
+.bento-item {
+    background-color: #222; border-radius: 20px;
+    background-size: cover; background-position: center;
+    position: relative; overflow: hidden;
+    transition: transform 0.4s var(--transition-curve);
+}
+.bento-item:hover { transform: scale(1.02); }
+.bento-item.large { grid-column: span 2; grid-row: span 2; }
+.bento-item.tall { grid-row: span 2; }
+.bento-overlay {
+    position: absolute; bottom: 0; width: 100%; padding: 20px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+}
+
+/* --- NEW: Slideshow (Side Format) --- */
+.slideshow-container {
+    max-width: 800px; position: relative; margin: auto;
+    border-radius: 20px; overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
+.mySlides { display: none; }
+.mySlides img { vertical-align: middle; border-radius: 20px; }
+.prev, .next {
+    cursor: pointer; position: absolute; top: 50%;
+    width: auto; padding: 16px; margin-top: -22px;
+    color: white; font-weight: bold; font-size: 18px;
+    transition: 0.6s ease; border-radius: 0 3px 3px 0;
+    user-select: none; background: rgba(0,0,0,0.3); backdrop-filter: blur(5px);
+}
+.next { right: 0; border-radius: 3px 0 0 3px; }
+.prev:hover, .next:hover { background-color: rgba(0,0,0,0.8); }
+.text {
+    color: #f2f2f2; font-size: 15px; padding: 8px 12px;
+    position: absolute; bottom: 8px; width: 100%;
+    text-align: center; font-weight: 600; text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+}
+.numbertext {
+    color: #f2f2f2; font-size: 12px; padding: 8px 12px;
+    position: absolute; top: 0;
+}
+.dot {
+    cursor: pointer; height: 10px; width: 10px; margin: 0 2px;
+    background-color: #717171; border-radius: 50%;
+    display: inline-block; transition: background-color 0.6s ease;
+}
+.active, .dot:hover { background-color: #fff; }
+.fade { animation-name: fade; animation-duration: 1.5s; }
+@keyframes fade { from {opacity: .4} to {opacity: 1} }
+
+/* --- Music Player --- */
+.player-wrapper { display: flex; justify-content: center; }
+.music-card {
+    background: var(--card-bg); backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 30px; border-radius: 24px;
+    display: flex; align-items: center; gap: 30px;
+    width: 100%; max-width: 600px;
+}
+.album-art img { width: 120px; height: 120px; border-radius: 12px; object-fit: cover; }
+.track-info { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+.track-info h3 { font-size: 1.5rem; margin-bottom: 5px; }
+.progress-bar { width: 100%; height: 4px; background: rgba(255,255,255,0.1); border-radius: 2px; margin: 15px 0; }
+.fill { width: 40%; height: 100%; background: #fff; }
+
+.controls {
+    display: flex; align-items: center; justify-content: flex-start; gap: 20px;
+}
+.control-btn { background: none; border: none; color: #fff; cursor: pointer; }
+.control-btn.small { font-size: 1.5rem; opacity: 0.7; }
+.play-btn { font-size: 2.5rem; }
+
+/* --- Game --- */
+.game-wrapper { display: flex; flex-direction: column; align-items: center; }
+#puzzle-board {
+    display: grid; grid-template-columns: repeat(3, 100px); gap: 4px;
+    padding: 4px; background: rgba(255,255,255,0.1);
+    border-radius: 12px; margin-bottom: 20px;
+}
+.tile {
+    width: 100px; height: 100px; background-size: 300px 300px;
+    border-radius: 6px; cursor: pointer; transition: transform 0.2s;
+}
+
+/* --- Animations --- */
+.hidden { opacity: 0; transform: translateY(40px); transition: opacity 1s, transform 1s; }
+.show { opacity: 1; transform: translateY(0); }
+.animate-up { animation: fadeInUp 1s forwards; opacity: 0; transform: translateY(30px); }
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.4s; }
+@keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+
+/* Mobile */
+@media (max-width: 768px) {
+    .music-card { flex-direction: column; text-align: center; }
+    .controls { justify-content: center; }
+    .hero h1 { font-size: 3rem; }
+}
