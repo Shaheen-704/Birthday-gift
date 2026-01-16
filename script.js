@@ -70,7 +70,7 @@ function playPause() {
 
 // --- 5. REAL PUZZLE LOGIC (Swap Style) ---
 const board = document.getElementById('puzzle-board');
-const imgPath = 'assets/puzzle.jpg'; 
+const imgPath = 'puzzle.jpg'; 
 let tiles = [];
 let selectedTile = null; // Tracks the first clicked tile
 
